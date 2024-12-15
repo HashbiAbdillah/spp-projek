@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('siswas', function (Blueprint $table) {
-            $table->char('nisn', 10)->primary();
-            $table->char('nis', 8);
-            $table->string('nama', 35);
-            $table->Integer('id_kelas');
-            $table->text('alamat')->nullable();
-            $table->string('no_telp', 13)->nullable();
+        Schema::create('pembayarans', function (Blueprint $table) {
+            $table->integer('id_pembayaran')->primary();
+            $table->Integer('id_petugas');
+            $table->char('nisn', 10);
+            $table->date('tgl_bayar');
+            $table->string('bulan_dibayar',8);
+            $table->string('tahun_dibayar',8);
             $table->Integer('id_spp');
+            $table->integer('jumlah_bayar');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('siswas');
+        Schema::dropIfExists('pembayarans');
     }
 };
