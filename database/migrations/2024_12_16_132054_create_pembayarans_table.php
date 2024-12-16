@@ -13,14 +13,18 @@ return new class extends Migration
     {
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->integer('id_pembayaran')->primary();
-            $table->Integer('id_petugas');
+            $table->integer('id_petugas');
             $table->char('nisn', 10);
             $table->date('tgl_bayar');
-            $table->string('bulan_dibayar',8);
-            $table->string('tahun_dibayar',8);
-            $table->Integer('id_spp');
+            $table->string('bulan_dibayar', 8);
+            $table->string('tahun_dibayar', 4);
+            $table->integer('id_spp');
             $table->integer('jumlah_bayar');
             $table->timestamps();
+//WKWKWKWK TYPO PWTUGAS NJIR AWOKAOWDKAOKDSOAK
+            $table->foreign('id_petugas')->references('id_petugas')->on('pwtugas')->onDelete('cascade');
+            $table->foreign('nisn')->references('nisn')->on('siswas')->onDelete('cascade');
+            $table->foreign('id_spp')->references('id_spp')->on('spps')->onDelete('cascade');
         });
     }
 

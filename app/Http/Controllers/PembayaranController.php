@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\siswa;
+use App\Models\pembayaran;
 use Illuminate\Http\Request;
 
-class SiswaController extends Controller
+class PembayaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class SiswaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(siswa $siswa)
+    public function show(pembayaran $pembayaran)
     {
         //
     }
@@ -42,7 +42,7 @@ class SiswaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(siswa $siswa)
+    public function edit(pembayaran $pembayaran)
     {
         //
     }
@@ -50,7 +50,7 @@ class SiswaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, siswa $siswa)
+    public function update(Request $request, pembayaran $pembayaran)
     {
         //
     }
@@ -58,7 +58,7 @@ class SiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(siswa $siswa)
+    public function destroy(pembayaran $pembayaran)
     {
         //
     }
