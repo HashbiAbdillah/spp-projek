@@ -7,34 +7,33 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Daftar</h3></div>
                                     <div class="card-body">
                                     <form action="{{route('submit.daftar')}}" method="post">
                                         @csrf
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" name="id" type="text" placeholder="name@example.com" />
+                                                <input class="form-control" name="id" type="text" required/>
                                                 <label for="inputnama">Buat id </label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" name="username" type="text" placeholder="name@example.com" />
+                                                <input class="form-control" name="username" type="text" />
                                                 <label for="inputnama">Buat username pengguna </label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" name="name" type="text" placeholder="name@example.com" />
+                                                <input class="form-control" name="name" type="text" />
                                                 <label for="inputnama">Masukan Nama </label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" name="password" type="password" placeholder="Password" />
+                                                <input class="form-control" name="password" type="password" />
                                                 <!-- passwordnya samain kaya id buat tes -->
                                                 <label for="inputPassword">Password</label>
                                             </div>
-                                            <div class="form-floating mb-3">   
-                                                <div class="btn-group">
-                                                    <select name="level" id="level">
-                                                        <option value="petugas">petugas</option>
-                                                        <option value="admin">admin</option>
-                                                    </select>
-                                                </div>                                            
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Example select</label>
+                                                <select class="form-control" id="exampleFormControlSelect1" name="level">
+                                                    <option value="petugas">Petugas</option>
+                                                    <option value="admin">Admin</option>
+                                                </select>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <button class="btn btn-primary">Daftar</button>

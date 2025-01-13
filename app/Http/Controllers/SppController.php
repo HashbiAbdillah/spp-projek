@@ -12,7 +12,7 @@ class SppController extends Controller
      */
     public function index()
     {
-        return view('cast.dashboard');
+        return view('login.dashboard');
     }
 
     /**
