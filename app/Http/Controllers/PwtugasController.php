@@ -52,16 +52,29 @@ class PwtugasController extends Controller
      */
     public function editpetugas(pwtugas $id_petugas)
     {
-        return view('petugas.editpetugas',  compact('id_pwtugas'));
+        
+        return view('petugas.editpetugas',  compact('id_petugas'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, pwtugas $pwtugas)
-    {
-        //
-    }
+    public function updatepetugas(Request $request, pwtugas $id_pwtugas)
+{
+    // validasi data
+    $request->validate([
+        'nama_petugas' => 'required|string',
+        'password' => 'required|string',
+        'level' => 'nullable|string',
+    ]);
+    $id_pwtugas->update([
+        'nama_petugas' => $request->input('nama_petugas'),
+        'password' => $request->input('password'),
+        'level' => $request->input('level'),
+    ]);
+    // $id_pwtugas->update($request->only(['nama_petugas', 'password', 'level']));
+    return redirect()->route('petugas.listpetugas');
+}
 
     /**
      * Remove the specified resource from storage.

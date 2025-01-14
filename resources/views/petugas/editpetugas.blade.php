@@ -12,57 +12,47 @@
                 Edit data
             </div>
             <div class="card-body">
-                <form action="{{ route('index.update', $id->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('petugas.update', $id_petugas->id_petugas) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label for="nama">Nama:</label>
-                        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ $id->nama }}">
-                        @error('nama')
+                        <label for="harga_beli">Id:</label>
+                        <input type="text" class="form-control @error('id_petugas') is-invalid @enderror" id="id_petugas" name="id_petugas" value="{{ $id_petugas->id_petugas }}" disabled>
+                        @error('id_petugas')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="jenis">Jenis:</label>
-                        <input type="text" class="form-control @error('jenis') is-invalid @enderror" id="jenis" name="jenis" value="{{ $id->jenis  }}">
-                        @error('jenis')
+                        <label for="nama">Username:</label>
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" value="{{ $id_petugas->username }}" disabled>
+                        @error('username'){{ route('petugas.update', $id_petugas->id_petugas) }}
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="harga_jual">Harga Jual:</label>
-                        <input type="text" class="form-control @error('harga_jual') is-invalid @enderror" id="harga_jual" name="harga_jual" value="{{  $id->harga_jual }}">
-                        @error('harga_jual')
+                        <label for="jenis">Nama:</label>
+                        <input type="text" class="form-control @error('nama_petugas') is-invalid @enderror" id="nama_petugas" name="nama_petugas" value="{{ $id_petugas->nama_petugas  }}">
+                        @error('nama_petugas')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="harga_beli">Harga Beli:</label>
-                        <input type="text" class="form-control @error('harga_beli') is-invalid @enderror" id="harga_beli" name="harga_beli" value="{{ $id->harga_beli }}">
-                        @error('harga_beli')
+                        <label for="harga_jual">Password:</label>
+                        <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{  $id_petugas->password }}">
+                        @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="deskripsi">Deskripsi:</label>
-                        <textarea class="form-control" id="deskripsi" name="deskripsi">{{ $id->id }}</textarea>
+                        <label for="exampleFormControlSelect1">Role</label>
+                        <select class="form-control @error('level') is-invalid @enderror" id="level" name="level" value="{{  $id_petugas->level }}">
+                            <option value="petugas" {{ $id_petugas->level == 'petugas' ? 'selected' : '' }}>Petugas</option>
+                            <option value="admin" {{ $id_petugas->level == 'admin' ? 'selected' : '' }}>Admin</option>
+                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="foto">Foto Produk:</label>
-                        <input type="file" class="form-control" id="foto" name="foto">
- 
-                        {{-- @if(!empty($id->foto))
-                        <img src="{{url('image')}}/{{$id->foto}}" alt=""class="rounded" style="width: 100%; max-width: 100px; height: auto;">
-                        @endif --}}
-                        @if(isset($id->foto) && !empty($id->foto))
-                            <img src="{{ url('image/' . $id->foto) }}" alt="Foto Produk" class="rounded" style="width: 100%; max-width: 100px; height: auto;">
-                        @else
-                            <img src="{{ url('image/nophoto.jpg') }}" alt="No Foto" class="rounded" style="width: 100%; max-width: 100px; height: auto;">
-                        @endif
- 
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-4">Submit</button>
-                </form>
+                    <button type="submit" class="btn btn-primary mt-4">Ubah</button>
+                    <button type="submit" class="btn btn-primary mt-4">Batal</button>
+                </form> 
             </div>
         </div>
     </div>

@@ -43,14 +43,16 @@
                                         <td>{{ $k->nama_petugas }}</td>
                                         <td>{{ $k->level }}</td>
                                         <td>
-                                            <a href="" class="btn btn-sm btn-secondary">show</a>
+                                            <a href="" class="btn btn-sm btn-secondary">
+                                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                            </a>
                                             <!-- kasih route -->
-                                            <button type="button" href="{{ route('tampil.edit' ,$k->id_petugas ) }}" class="btn btn-warning">
+                                            <a href="{{ route('tampil.edit' ,$k->id_petugas ) }}" class="btn btn-warning">
                                                 <i class="fa fa-edit"></I>
-                                            </button>
-                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$k->id}}">
-                                                hapus
-                                            </button>
+                                            </a>
+                                            <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal{{$k->id}}">
+                                                <i class="fa fa-trash"></I>
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
