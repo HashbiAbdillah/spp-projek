@@ -42,10 +42,12 @@ class PwtugasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(pwtugas $pwtugas)
+    public function viewpetugas(pwtugas $id_petugas)
     {
-        //
+        
+        return view('petugas.viewpetugas',  compact('id_petugas'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -79,8 +81,11 @@ class PwtugasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(pwtugas $pwtugas)
-    {
-        //
-    }
+    public function petugasdestroy(pwtugas $id_petugas)
+{
+    $id_petugas->delete();
+    
+    return redirect()->route('petugas.listpetugas')
+            ->with('success','Data berhasil di hapus' );
+}
 }

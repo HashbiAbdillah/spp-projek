@@ -1,7 +1,7 @@
 @extends('template.view')
 @section('content')
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Edit Petugas</h1>
+        <h1 class="mt-4">Detail Petugas</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Dashboard</li>
         </ol>
@@ -25,33 +25,32 @@
                     <div class="form-group">
                         <label for="nama">Username:</label>
                         <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" value="{{ $id_petugas->username }}" disabled>
-                        @error('username'){{ route('petugas.update', $id_petugas->id_petugas) }}
+                        @error('username')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="jenis">Nama:</label>
-                        <input type="text" class="form-control @error('nama_petugas') is-invalid @enderror" id="nama_petugas" name="nama_petugas" value="{{ $id_petugas->nama_petugas  }}">
+                        <input type="text" class="form-control @error('nama_petugas') is-invalid @enderror" id="nama_petugas" name="nama_petugas" value="{{ $id_petugas->nama_petugas  }}" disabled="">
                         @error('nama_petugas')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="harga_jual">Password:</label>
-                        <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{  $id_petugas->password }}">
-                        @error('password')
+                        <label for="harga_jual">Role:</label>
+                        <input type="text" class="form-control @error('level') is-invalid @enderror" id="level" name="level" value="{{  $id_petugas->level }} " disabled>
+                        @error('level')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Role</label>
-                        <select class="form-control @error('level') is-invalid @enderror" id="level" name="level" value="{{  $id_petugas->level }}">
-                            <option value="petugas" {{ $id_petugas->level == 'petugas' ? 'selected' : '' }}>Petugas</option>
-                            <option value="admin" {{ $id_petugas->level == 'admin' ? 'selected' : '' }}>Admin</option>
-                         </select>
+                        <label for="harga_jual">Dibuat tanggal:</label>
+                        <input type="text" class="form-control @error('created_at') is-invalid @enderror" id="created_at" name="created_at" value="{{  $id_petugas->created_at }} " disabled>
+                        @error('created_at')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary mt-4">Ubah</button>
-                    <a href="{{ url()->previous() }}" class="btn btn-secondary mt-4">Batal</a>
+                    <a href="{{ url()->previous() }}" class="btn btn-secondary mt-4">Kembali</a>
                 </form> 
             </div>
         </div>

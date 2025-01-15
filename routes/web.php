@@ -17,3 +17,5 @@ route::post("/daftar/submit", [PetugasAuthController::class, 'daftarsubmit'])->n
 route::get("/petugas", [PwtugasController::class, 'tampilpetugas'])->name('petugas.listpetugas');
 route::get('/petugas/{id_petugas}/edit', [PwtugasController::class, 'editpetugas'])->name('tampil.edit');
 route::put('/petugas/{id_pwtugas}/update', [PwtugasController::class, 'updatepetugas'])->name('petugas.update');
+route::get('/petugas/{id_petugas}/view', [PwtugasController::class, 'viewpetugas'])->name('tampil.view');
+route::delete('/petugas/{id_petugas}', [PwtugasController::class, 'petugasdestroy'])->name('petugas.destroy');
